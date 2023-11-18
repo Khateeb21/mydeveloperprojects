@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <style>
+
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.search {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+th {
+  background-color: #f2f2f2;
+  padding: 12px;
+  text-align: left;
+}
+
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+td {
+  padding: 10px;
+}
+
+td.get {
+  font-weight: bold;
+  color: #333;
+}
+
+
+td {
+  padding: 10px;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+ <input type="text" placeholder="start Searching" class="search">
+  
+
+
+    <table border="3" width="100%" height="500px">
+     
+     <tr>
+
+      <th>NAME</th>
+      <th>Gender</th>
+      <th>Contact no</th>
+
+
+
+
+
+     </tr>
+         
+      <tr>
+      <td class="get">Khateeb</td>
+      <td>Male </td>
+      <td class="get">803191814</td>
+
+
+
+
+
+
+
+      </tr>
+      <tr>
+      <td class="get">adil</td>
+      <td>Male </td>
+      <td class="get">271831481</td>
+
+
+
+
+
+
+
+      </tr>
+
+  <tr>
+      <td class="get">Burhan</td>
+      <td >Male </td>
+      <td class="get">4556363</td>
+
+
+
+
+
+
+
+      </tr>
+
+
+ <tr>
+      <td class="get">Mehran</td>
+      <td>Male </td>
+      <td class="get">754747474</td>
+
+
+
+
+
+
+
+      </tr>
+      <tr>
+        <td class="get">adils</td>
+        <td>Male </td>
+        <td class="get">271831481</td>
+  
+  
+  
+  
+  
+  
+  
+        </tr>
+  
+
+
+    </table>
+    <script>
+
+let searchInput = document.querySelector('.search');
+let tableRow=document.querySelectorAll('tr')
+
+
+
+let result=[];
+let Row=0
+
+searchInput.addEventListener('keyup', function()  {
+    let get = document.querySelectorAll('.get');
+let search = searchInput.value.toLowerCase();
+           
+
+let k=0
+let array=[]
+           array.push(search)
+           
+
+           Row=array.join('')
+           console.log(Row)
+
+            for ( i = 0; i < get.length; i++) {
+            
+                                 
+        if (Row==="" ) {
+                      
+                      result=get[i].parentNode
+                      result.style.backgroundColor="white"
+               
+ 
+                              
+  }     
+        if (get[i].innerHTML.toLowerCase().indexOf(Row[0])>=0 ) {
+                      
+                     result=get[i].parentNode
+                     result.style.backgroundColor='red'
+                 
+                        
+                             
+ }     
+                else 
+                
+
+                {
+             
+                    
+                       continue 
+
+                 
+                }
+                         
+        if (get[i].innerHTML.toLowerCase().indexOf(Row)<0 ) {
+                      
+                      result=get[i].parentNode
+                      result.style.backgroundColor="white"
+               
+ 
+                              
+  }     
+
+            }
+                    
+                   
+                 
+                    
+                          
+           
+
+                     
+                       
+                    
+                    
+ });
+
+               
+                
+            
+
+
+    </script>
+</body>
+</html>

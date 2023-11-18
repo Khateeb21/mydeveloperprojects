@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .calculator-head{
+            width:800px;
+            height:100px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+        .calculator-result{
+            width:800px;
+            height:50px;
+            border: 1px solid black;
+            margin-top:45px;
+            text-align: end;
+            font-size:20px;
+
+            
+          }
+          .calculator-body{
+            width:800px;
+            height:300px;
+            border: 0px solid black;
+            margin-top:15px;
+            
+            font-size:20px;
+          }
+          .same-height{
+            display: inline-block;
+            width:260px;
+            height:50px;
+            text-align: center;
+            background: #f1f3f4;
+             border: 1px solid black;
+             border-radius: 4px;
+          }
+            .font{
+                font-size:30px;
+                color:black;
+            }
+           .equalto{
+            width:255px;
+            height:100px;
+                display: inline-block;
+                   
+                
+               
+           }
+     .equal{
+
+        position: relative;
+        top:20px;
+     }
+      .mode,.divide{
+        position: relative;
+        bottom:50px;
+      }
+      .zero{
+         width:785px;
+         position: relative;
+         top:-50px;
+      }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+     <div class="calculator-head">
+        <div class="calculator-result">
+            <h3 class="answer">0</h1>
+
+        </div>
+        <div class="calculator-body">
+            <div onclick="input(0)"class="same-height number-7">
+            <span class="number font">7</span>
+            </div>
+            <div onclick="input(1)"class="same-height">
+                <span class="number font">8</span>
+            </div>
+            <div onclick="input(2)" class="same-height">
+                <span class="number font">9</span>
+            </div>
+            <div onclick="input(3)"class="same-height">
+                <span class="number font">4</span>
+            </div>
+            <div onclick="input(4)"class="same-height">
+                <span class="number font">5</span>
+            </div>
+            <div onclick="input(5)"class="same-height">
+                <span class="number font">6</span>
+            </div>
+            <div onclick="input(6)"class="same-height">
+                <span class="number font">1</span>
+            </div>
+            <div onclick="input(7)"class="same-height ">
+                <span class="number font">2</span>
+            </div>
+            <div onclick="input(8)" class="same-height">
+                <span class="number font">3</span>
+            </div>
+            <div onclick="input(9)" class="same-height plus">
+                <span class="add font">+</span>
+            </div>
+            <div onclick="input(10)" class="same-height minus">
+                <span class="subtract font">-</span>
+               
+            </div>
+            <div onclick="input(11)" class="same-height equalto">
+                <span class="equal font">=</span>
+        </div>
+        <div onclick="input(12)" class="same-height divide">
+            <span class="divid font">/</span>
+    </div>
+    <div onclick="input(13)" class="same-height mode">
+        <span class="mod font">%</span>
+</div>
+<div onclick="input(14)" class="same-height zero">
+    <span class="mod font">0</span>
+</div>
+     </div>
+
+
+
+
+    </div>
+  
+    <script>
+        let result=0
+         let number=[];
+         let x=0;
+         let m=0
+         let adds=0;
+         let store=document.getElementsByTagName('span');
+         
+
+      
+      function  input(i){
+                  
+       
+                 
+             
+                   if(store[i]!==store[9]  && store[i]!==store[11]){
+                   
+                               number.push(store[i].textContent)
+                                    
+                             sum=number;
+                             sFirst=sum.join('')
+                              result=parseInt(sFirst)
+                              answer=document.querySelector('h3').textContent=result
+                
+                               add(number, store,i,result);
+                   }
+               
+                   if (store[i]=== store[9] || store[i] === store[11]) {
+                                                
+                 sumSecond=number;
+                 sSecond=sumSecond.join('')
+                  resultSecond=parseInt(sSecond)
+               
+             
+                
+                    add(number, store,i,result,resultSecond);
+                                 
+           
+         }
+         if (store[i] === store[9]) {
+                  number=[];
+                                    
+                  }
+      }
+        
+
+          
+      function add(number,store,i,result,resultSecond){
+       
+        
+             
+       
+        
+                  
+            if (store[i] === store[9]) {
+              
+                answer=document.querySelector('h3').textContent=""
+                 adds+=result
+             
+                    
+              
+                 
+                  }
+            
+       
+                  
+                 
+                  
+         
+             if(store[i]===store[11]){
+            
+                   resultThird=adds+resultSecond
+                   answer=document.querySelector('h3').textContent=`${adds}+${result}=${resultThird}`
+                 
+                         
+                    
+             
+                 
+                }
+             }
+         
+     
+ 
+ 
+     </script>
+
+</body>
+</html>
